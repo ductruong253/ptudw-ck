@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "admin",
+        "database": "foodnrecipes",
+        "host": "localhost",
+        "dialect": "postgres"
+      },
+    "test": {
+        "username": "postgres",
+        "password": "postgres",
+        "database": "CookingRecipeDB",
+        "host": "localhost",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "username",
+        "password": "pw",
+        "database": "db",
+        "host": "host",
+        "dialect": "postgres",
+        "dialectOptions": {
+            "ssl": true
+        }
+    }
+}
