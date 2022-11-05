@@ -31,6 +31,8 @@ app.use(bodyParser.urlencoded({
 //root resource
 app.use('/', require('./routes/indexRouter'))
 
+app.use('/booking', require('./routes/bookingRouter'))
+
 
 //sync data resource
 app.get('/sync', (req, res) => {
