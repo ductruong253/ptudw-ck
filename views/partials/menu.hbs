@@ -1,0 +1,35 @@
+<section id="menu-list" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center marb-35">
+          <h1 class="header-h">Menu List</h1>
+          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam.
+          </p>
+        </div>
+
+        <div class="col-md-12  text-center" id="menu-flters">
+          <ul>
+            <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
+            {{#each menus}}
+            <li><a class="filter" data-filter=".{{toLowerCase name}}">{{name}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <div id="menu-wrapper">
+          {{#each menus}}
+            {{#each Food}}
+              <div class="{{toLowerCase ../name}} menu-restaurant">
+                <span class="clearfix">
+                  <a class="menu-title" href="#" data-meal-img="/img/restaurant/rib.jpg">{{name}}</a>
+                  <span style="left: 166px; right: 44px;" class="menu-line"></span>
+                  <span class="menu-price">${{toFixed2 price}}</span>
+                </span>
+                <span class="menu-subtitle">{{summary}}</span>
+              </div>
+            {{/each}}
+          {{/each}}
+      </div>
+    </div>
+  </section>

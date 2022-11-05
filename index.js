@@ -3,7 +3,7 @@ let app = express();
 
 app.use(express.static(__dirname + '/public'))
 //add custom header
-// let helper = require('./controller/helper')
+let helper = require('./controllers/helper')
 
 let expressHbs = require('express-handlebars')
 let hbs = expressHbs.create({
@@ -13,6 +13,10 @@ let hbs = expressHbs.create({
     partialsDir: __dirname + '/views/partials/',
     runtimeOptions: {
         allowProtoPropertiesByDefault: true
+    },
+    helpers: {
+        toLowerCase: helper.toLowerCase,
+        toFixed2: helper.toFixed2
     }
 })
 app.engine('hbs',  hbs.engine)
