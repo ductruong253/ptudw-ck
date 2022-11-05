@@ -1,6 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const { sequelize } = require('./models/index')
+const { formatPrice } = require('./helpers/formatPrice')
 
 const app = express()
 const port = process.env.PORT || 5002
@@ -15,6 +16,9 @@ const hbs = exphbs.create({
         allowedProtoMethods: true,
         allowProtoPropertiesByDefault: true,
         allowedProtoProperties: true
+    },
+    helpers: {
+        formatPrice
     }
 })
 
@@ -32,9 +36,8 @@ app.get('/sync', async (req, res) => {
     } catch (error) {}
 })
 
-app.get('/', (req, res, next) => {
-    res.render('index')
-})
+app.use('/', require('./routes/menuRouter'))
+app.use('/booking', require('./routes/bookingRouter'))
 
 app.listen(port, () => {
     console.log('Server is running at port ' + port)
